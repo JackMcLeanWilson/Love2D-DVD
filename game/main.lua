@@ -1,5 +1,13 @@
 function love.load()
 
+	--Fonts 
+	Font = love.graphics.newImageFont("assets/Pixelfont.png",
+    " abcdefghijklmnopqrstuvwxyz" ..
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ0" ..
+    "123456789.,!?-+/():;%&`'*#=[]\"")
+
+	love.graphics.setFont(Font)
+
 	--Sprites 
 	DVDSprite = love.graphics.newImage("assets/DVDlogo/LogoW.png")
 
@@ -52,10 +60,11 @@ function love.update(dt)
 	if love.keyboard.isDown("up") and SpeedMult ~= 4 then --Speed Up
 		SpeedMult = 4
 		print("New mult: " .. tostring(SpeedMult))
+		love.graphics.print("Fast Speed!", 100, 100)
 	elseif love.keyboard.isDown("down") and SpeedMult ~= 1 then  -- Speed Down
 		SpeedMult = 1
 		print("New mult: " .. tostring(SpeedMult))
-	elseif love.keyboard.isDown("r") then -- Reset Speed 
+	elseif love.keyboard.isDown("r") and SpeedMult ~= 2 then -- Reset Speed 
 		SpeedMult = 2
 		print("Mult Reset")
 	elseif love.keyboard.isDown("q") then  --Reset Position
