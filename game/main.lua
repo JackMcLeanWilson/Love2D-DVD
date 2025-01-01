@@ -11,8 +11,8 @@ function love.load()
 end
 
 function love.update(dt)
-	x = (x + dx) * dt
-	y = (y + dx) * dt
+	x = x + dx * dt
+	y = y + dx * dt
 
 	if x > 600 - width then
 		print("Out of X bounds!")
