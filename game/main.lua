@@ -15,6 +15,8 @@ function love.load()
 
 	--Audio
 	SoundHit = love.audio.newSource("assets/Sound/hit.wav", "static") --Loads into memory, DONT LOAD LARGE SOUNDS INTO MEMORY
+	SoundSpeed = love.audio.newSource("assets/Sound/speed.wav", "static")
+	SoundBlip = love.audio.newSource("assets/Sound/blip.wav", "static")
 
 	-- Position
 	Xpos = 100
@@ -63,15 +65,21 @@ function love.update(dt)
 		SpeedMult = 4
 		print("New mult: " .. tostring(SpeedMult))
 		DisplayText = "Fast Speed!"
+		SoundSpeed:play()
 	elseif love.keyboard.isDown("down") and SpeedMult ~= 1 then  -- Speed Down
 		SpeedMult = 1
 		print("New mult: " .. tostring(SpeedMult))
+		DisplayText = "Slow Speed!"
+		SoundSpeed:play()
 	elseif love.keyboard.isDown("r") and SpeedMult ~= 2 then -- Reset Speed 
 		SpeedMult = 2
 		print("Mult Reset")
+		DisplayText = "Normal Speed!"
+		SoundSpeed:play()
 	elseif love.keyboard.isDown("q") then  --Reset Position
 		Xpos = 100 
 		Ypos = 100
+		SoundBlip:play()
 	end
 end
 
