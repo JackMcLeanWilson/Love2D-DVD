@@ -49,12 +49,15 @@ function love.update(dt)
 	end
 
 	-- User Input
-	if love.keyboard.isDown("up") and SpeedMult < 8 then
+	if love.keyboard.isDown("up") and SpeedMult < 8 then --Speed Up
 		SpeedMult = SpeedMult + 0.01
 		print("New mult: " .. tostring(SpeedMult))
-	elseif love.keyboard.isDown("down") and SpeedMult > 0.5 then 
-		SpeedMult = SpeedMult - 0.01	
+	elseif love.keyboard.isDown("down") and SpeedMult > 0.5 then  -- Speed Down
+		SpeedMult = SpeedMult - 0.01
 		print("New mult: " .. tostring(SpeedMult))
+	elseif love.keyboard.isDown("r") then -- Reset Speed 
+		SpeedMult = 1
+		print("Mult Reset")
 	end
 end
 
