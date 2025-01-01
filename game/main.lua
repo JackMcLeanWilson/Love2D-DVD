@@ -20,10 +20,7 @@ function love.load()
 	SpeedMult = 1.5
 
 	-- Colour
-	ColorR = 1
-	ColorG = 1 
-	ColorB = 1 
-	SpriteColor = {ColorR, ColorG, ColorB, 1}
+	SpriteColor = {1, 1, 1, 1}
 	
 end
 
@@ -33,14 +30,18 @@ function love.update(dt)
 	Xpos = Xpos  + (DX * dt * SpeedMult)
 	Ypos = Ypos + (DY * dt * SpeedMult)
 
-	-- Rectangle Movement
+	-- Rectangle Bounds Check
 	if (Xpos > 600 - Width) or (Xpos < 0) then
 		DX = -DX
 		print("New DX: " .. tostring(DX))
+		RandomColor()
+		love.graphics.setColor(SpriteColor)
 	end
 		if (Ypos > 600 - Height) or (Ypos < 0) then
 		DY = -DY
 		print("New DY: " .. tostring(DY))
+		RandomColor()
+		love.graphics.setColor(SpriteColor)
 	end
 
 	-- User Input
@@ -56,4 +57,10 @@ end
 function love.draw()
 	love.graphics.setColor(SpriteColor)
 	love.graphics.draw(DVDSprite, Xpos, Ypos, 0, Width / DVDSprite:getWidth(), Height / DVDSprite:getHeight())
+end
+
+function RandomColor()
+	SpriteColor[1] = math.random()
+    SpriteColor[2] = math.random()
+    SpriteColor[3] = math.random()
 end
