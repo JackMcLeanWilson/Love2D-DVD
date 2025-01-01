@@ -16,6 +16,11 @@ function love.load()
 
 	-- Multiplier
 	speedMult = 1
+
+	-- Colour
+	colourR = 255
+	colourG = 255 
+	colourB = 255
 	
 end
 
@@ -31,8 +36,8 @@ function love.update(dt)
 		print("New dx: " .. tostring(dx))
 	end
 		if (y > 600 - height) or (y < 0) then
-		print("New dy: " .. tostring(dy))
 		dy = -dy
+		print("New dy: " .. tostring(dy))
 	end
 
 	-- User Input
@@ -46,5 +51,6 @@ function love.update(dt)
 end
 
 function love.draw()
+	love.graphics.setColor(colourR,colourG,colourB)
 	love.graphics.rectangle("fill", x, y, width, height)
 end
