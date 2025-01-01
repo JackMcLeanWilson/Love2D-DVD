@@ -1,7 +1,5 @@
 function love.load()
 
-	love.window.setMode(600, 600)
-
 	--Sprites 
 	DVDSprite = love.graphics.newImage("assets/DVDlogo/LogoW.png")
 
