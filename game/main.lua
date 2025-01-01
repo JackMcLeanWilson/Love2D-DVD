@@ -20,9 +20,10 @@ function love.load()
 	SpeedMult = 1.5
 
 	-- Colour
-	ColourR = 255
-	ColourG = 255
-	ColourB = 255
+	ColorR = 1
+	ColorG = 1 
+	ColorB = 1 
+	SpriteColor = {ColorR, ColorG, ColorB, 1}
 	
 end
 
@@ -53,5 +54,6 @@ function love.update(dt)
 end
 
 function love.draw()
+	love.graphics.setColor(SpriteColor)
 	love.graphics.draw(DVDSprite, Xpos, Ypos, 0, Width / DVDSprite:getWidth(), Height / DVDSprite:getHeight())
 end
