@@ -2,6 +2,8 @@ function love.load()
 
 	love.window.setMode(600, 600)
 
+	DVDSprite = love.graphics.newImage("assets/DVDlogo/LogoW.png")
+
 	-- Position
 	Xpos = 100
 	Ypos = 50
@@ -11,11 +13,11 @@ function love.load()
 	DY = 60
 
 	-- Dimensions
-	Width = 200
-	Height = 150
+	Width = 173
+	Height = 76
 
 	-- Multiplier
-	SpeedMult = 1
+	SpeedMult = 1.5
 
 	-- Colour
 	ColourR = 255
@@ -51,6 +53,5 @@ function love.update(dt)
 end
 
 function love.draw()
-	love.graphics.setColor(ColourR,ColourG,ColourB)
-	love.graphics.rectangle("fill", Xpos, Ypos, Width, Height)
+	love.graphics.draw(DVDSprite, Xpos, Ypos, 0, Width / DVDSprite:getWidth(), Height / DVDSprite:getHeight())
 end
