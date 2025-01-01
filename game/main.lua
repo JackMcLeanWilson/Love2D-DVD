@@ -7,7 +7,7 @@ function love.load()
 	Ypos = 50
 
 	-- Velocity
-	DX = 40 
+	DX = 40
 	DY = 60
 
 	-- Dimensions
@@ -19,7 +19,7 @@ function love.load()
 
 	-- Colour
 	ColourR = 255
-	ColourG = 255 
+	ColourG = 255
 	ColourB = 255
 	
 end
