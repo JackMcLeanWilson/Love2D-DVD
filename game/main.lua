@@ -8,6 +8,8 @@ function love.load()
 
 	love.graphics.setFont(Font)
 
+	DisplayText = ""
+
 	--Sprites 
 	DVDSprite = love.graphics.newImage("assets/DVDlogo/LogoW.png")
 
@@ -60,7 +62,7 @@ function love.update(dt)
 	if love.keyboard.isDown("up") and SpeedMult ~= 4 then --Speed Up
 		SpeedMult = 4
 		print("New mult: " .. tostring(SpeedMult))
-		love.graphics.print("Fast Speed!", 100, 100)
+		DisplayText = "Fast Speed!"
 	elseif love.keyboard.isDown("down") and SpeedMult ~= 1 then  -- Speed Down
 		SpeedMult = 1
 		print("New mult: " .. tostring(SpeedMult))
@@ -68,14 +70,18 @@ function love.update(dt)
 		SpeedMult = 2
 		print("Mult Reset")
 	elseif love.keyboard.isDown("q") then  --Reset Position
-		Xpos = 300 - Width
-		Ypos = 300 - Height
+		Xpos = 100 
+		Ypos = 100
 	end
 end
 
 function love.draw()
 	love.graphics.setColor(SpriteColor)
 	love.graphics.draw(DVDSprite, Xpos, Ypos, 0, Width / DVDSprite:getWidth(), Height / DVDSprite:getHeight())
+
+	if DisplayText ~= "" then
+		love.graphics.printf(DisplayText, 0, 50, 600, "center")
+	end
 end
 
 function RandomColor()
