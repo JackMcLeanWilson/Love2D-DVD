@@ -19,7 +19,7 @@ function love.load()
 	Height = 76
 
 	-- Multiplier
-	SpeedMult = 1.5
+	SpeedMult = 2
 
 	-- Colour
 	SpriteColor = {1, 1, 1, 1}
@@ -49,15 +49,18 @@ function love.update(dt)
 	end
 
 	-- User Input
-	if love.keyboard.isDown("up") and SpeedMult < 8 then --Speed Up
-		SpeedMult = SpeedMult + 0.01
+	if love.keyboard.isDown("up") and SpeedMult ~= 4 then --Speed Up
+		SpeedMult = 4
 		print("New mult: " .. tostring(SpeedMult))
-	elseif love.keyboard.isDown("down") and SpeedMult > 0.5 then  -- Speed Down
-		SpeedMult = SpeedMult - 0.01
+	elseif love.keyboard.isDown("down") and SpeedMult ~= 1 then  -- Speed Down
+		SpeedMult = 1
 		print("New mult: " .. tostring(SpeedMult))
 	elseif love.keyboard.isDown("r") then -- Reset Speed 
-		SpeedMult = 1
+		SpeedMult = 2
 		print("Mult Reset")
+	elseif love.keyboard.isDown("q") then  --Reset Position
+		Xpos = 300 - Width
+		Ypos = 300 - Height
 	end
 end
 
