@@ -2,7 +2,11 @@ function love.load()
 
 	love.window.setMode(600, 600)
 
+	--Sprites 
 	DVDSprite = love.graphics.newImage("assets/DVDlogo/LogoW.png")
+
+	--Audio
+	SoundHit = love.audio.newSource("assets/Sound/hit.wav", "static") --Loads into memory, DONT LOAD LARGE SOUNDS INTO MEMORY
 
 	-- Position
 	Xpos = 100
@@ -36,12 +40,14 @@ function love.update(dt)
 		print("New DX: " .. tostring(DX))
 		RandomColor()
 		love.graphics.setColor(SpriteColor)
+		SoundHit:play()
 	end
 		if (Ypos > 600 - Height) or (Ypos < 0) then
 		DY = -DY
 		print("New DY: " .. tostring(DY))
 		RandomColor()
 		love.graphics.setColor(SpriteColor)
+		SoundHit:play()
 	end
 
 	-- User Input
