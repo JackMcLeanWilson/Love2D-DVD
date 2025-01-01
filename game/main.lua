@@ -3,54 +3,54 @@ function love.load()
 	love.window.setMode(600, 600)
 
 	-- Position
-	x = 100
-	y = 50
+	Xpos = 100
+	Ypos = 50
 
 	-- Velocity
-	dx = 40 
-	dy = 60
+	DX = 40 
+	DY = 60
 
 	-- Dimensions
-	width = 200
-	height = 150
+	Width = 200
+	Height = 150
 
 	-- Multiplier
-	speedMult = 1
+	SpeedMult = 1
 
 	-- Colour
-	colourR = 255
-	colourG = 255 
-	colourB = 255
+	ColourR = 255
+	ColourG = 255 
+	ColourB = 255
 	
 end
 
 function love.update(dt)
 
 	-- Position Update
-	x = x  + (dx * dt * speedMult)
-	y = y + (dy * dt * speedMult)
+	Xpos = Xpos  + (DX * dt * SpeedMult)
+	Ypos = Ypos + (DY * dt * SpeedMult)
 
 	-- Rectangle Movement
-	if (x > 600 - width) or (x < 0) then
-		dx = -dx
-		print("New dx: " .. tostring(dx))
+	if (Xpos > 600 - Width) or (Xpos < 0) then
+		DX = -DX
+		print("New DX: " .. tostring(DX))
 	end
-		if (y > 600 - height) or (y < 0) then
-		dy = -dy
-		print("New dy: " .. tostring(dy))
+		if (Ypos > 600 - Height) or (Ypos < 0) then
+		DY = -DY
+		print("New DY: " .. tostring(DY))
 	end
 
 	-- User Input
-	if love.keyboard.isDown("up") and speedMult < 8 then
-		speedMult = speedMult + 0.01
-		print("New mult: " .. tostring(speedMult))
-	elseif love.keyboard.isDown("down") and speedMult > 0.5 then 
-		speedMult = speedMult - 0.01	
-		print("New mult: " .. tostring(speedMult))
+	if love.keyboard.isDown("up") and SpeedMult < 8 then
+		SpeedMult = SpeedMult + 0.01
+		print("New mult: " .. tostring(SpeedMult))
+	elseif love.keyboard.isDown("down") and SpeedMult > 0.5 then 
+		SpeedMult = SpeedMult - 0.01	
+		print("New mult: " .. tostring(SpeedMult))
 	end
 end
 
 function love.draw()
-	love.graphics.setColor(colourR,colourG,colourB)
-	love.graphics.rectangle("fill", x, y, width, height)
+	love.graphics.setColor(ColourR,ColourG,ColourB)
+	love.graphics.rectangle("fill", Xpos, Ypos, Width, Height)
 end
