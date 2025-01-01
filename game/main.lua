@@ -1,8 +1,8 @@
 function love.load()
 	x = 100
 	y = 50
-	dx =2 
-	dy = 3
+	dx = 40 
+	dy = 60
 end
 
 function love.update(dt)
