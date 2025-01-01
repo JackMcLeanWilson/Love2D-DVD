@@ -12,14 +12,14 @@ end
 
 function love.update(dt)
 	x = x + dx * dt
-	y = y + dx * dt
+	y = y + dy * dt
 
-	if x > 600 - width then
-		print("Out of X bounds!")
+	if (x > 600 - width) or (x < 0) then
 		dx = -dx
+		print("New dx: " .. tostring(dx))
 	end
-		if y > 600 - height then
-		print("Out of Y bounds!")
+		if (y > 600 - height) or (y < 0) then
+		print("New dy: " .. tostring(dy))
 		dy = -dy
 	end
 end
