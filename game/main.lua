@@ -1,12 +1,13 @@
 function love.load()
 	x = 100
 	y = 50
+	dx =2 
+	dy = 3
 end
 
 function love.update(dt)
-	if x < 600 then
-		x = x + 100 * dt
-	end
+	x = x + dx * dt
+	y = y + dx * dt
 end
 
 function love.draw()
