@@ -42,7 +42,7 @@ function love.update(dt)
 		love.graphics.setColor(SpriteColor)
 		SoundHit:play()
 	end
-		if (Ypos > 600 - Height) or (Ypos < 0) then
+	if (Ypos > 600 - Height) or (Ypos < 0) then
 		DY = -DY
 		print("New DY: " .. tostring(DY))
 		RandomColor()
