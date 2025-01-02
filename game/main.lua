@@ -77,7 +77,7 @@ function love.update(dt)
 		DisplayText = "Normal Speed!"
 		SoundSpeed:play()
 	elseif love.keyboard.isDown("q") then  --Reset Position
-		Xpos = 100 
+		Xpos = 100
 		Ypos = 100
 		SoundBlip:play()
 	end
