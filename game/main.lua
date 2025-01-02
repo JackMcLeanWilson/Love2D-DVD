@@ -45,14 +45,14 @@ function love.update(dt)
 	Ypos = Ypos + (DY * dt * SpeedMult)
 
 	-- Rectangle Bounds Check
-	if (Xpos > 600 - Width) or (Xpos < 0) then
+	if (Xpos > 600 - (Width + 3)) or (Xpos < 3) then
 		DX = -DX
 		print("New DX: " .. tostring(DX))
 		RandomColor()
 		love.graphics.setColor(SpriteColor)
 		SoundHit:play()
 	end
-	if (Ypos > 600 - Height) or (Ypos < 0) then
+	if (Ypos > 600 - (Height + 3)) or (Ypos < 3) then
 		DY = -DY
 		print("New DY: " .. tostring(DY))
 		RandomColor()
