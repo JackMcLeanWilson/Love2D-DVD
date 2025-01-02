@@ -45,6 +45,7 @@ function love.update(dt)
 		DisplayText = "Endless DVD"
 		ControlText = "Up Arrow - Speed Up\nDown Arrow - Speed Down\nR - Reset Speed\nQ- Reset\nEsc - Exit"
 		DisplayText2 = "Press Space To Start!"
+		CopyrightText = "QuarkInAnarchy (c)\n MIT License"
 		if love.keyboard.isDown("space") then
 			GameState = "game"
 			DisplayText = ""
@@ -107,6 +108,7 @@ function love.draw()
 		love.graphics.printf(DisplayText, 0, 50, 600, "center")
 		love.graphics.printf(ControlText, 0, 150, 600, "center")
 		love.graphics.printf(DisplayText2, 0, 300, 600, "center")
+		love.graphics.printf(CopyrightText, 0, 500, 600, "center")
 	elseif GameState == "game" then
 		love.graphics.setColor(SpriteColor)
 		love.graphics.draw(DVDSprite, Xpos, Ypos, 0, Width / DVDSprite:getWidth(), Height / DVDSprite:getHeight())
